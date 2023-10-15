@@ -10,6 +10,10 @@ terraform {
 provider "huaweicloud" {
   region = "ap-southeast-3"
 }
+provider "huaweicloud" {
+  alias = "th"
+  region = "ap-southeast-2"
+}
 
 provider "huaweicloud" {
   alias  = "hk"

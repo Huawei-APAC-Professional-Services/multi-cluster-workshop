@@ -6,11 +6,13 @@ locals {
 }
 
 resource "huaweicloud_vpc" "cluster_a" {
+  provider = huaweicloud.th
   name = "cluster_a"
   cidr = var.cluster_a_cidr
 }
 
 resource "huaweicloud_vpc_subnet" "cluster_a_master" {
+  provider = huaweicloud.th
   name = "cluster_a_master"
   cidr = local.cluster_a_master_cidr
 
@@ -19,6 +21,7 @@ resource "huaweicloud_vpc_subnet" "cluster_a_master" {
 }
 
 resource "huaweicloud_vpc_subnet" "cluster_a_pod" {
+  provider = huaweicloud.th
   name = "cluster_a_pod"
   cidr = local.cluster_a_pod_cidr
 
@@ -27,6 +30,7 @@ resource "huaweicloud_vpc_subnet" "cluster_a_pod" {
 }
 
 resource "huaweicloud_vpc_subnet" "cluster_a_elb" {
+  provider = huaweicloud.th
   name = "cluster_a_elb"
   cidr = local.cluster_a_elb_cidr
 
@@ -35,6 +39,7 @@ resource "huaweicloud_vpc_subnet" "cluster_a_elb" {
 }
 
 resource "huaweicloud_vpc_subnet" "cluster_a_public" {
+  provider = huaweicloud.th
   name = "cluster_a_public"
   cidr = local.cluster_a_public_cidr
 
@@ -43,6 +48,7 @@ resource "huaweicloud_vpc_subnet" "cluster_a_public" {
 }
 
 resource "huaweicloud_nat_gateway" "cluster_a_nat" {
+  provider = huaweicloud.th
   name      = "cluster_a"
   spec      = "1"
   vpc_id    = huaweicloud_vpc.cluster_a.id
@@ -50,6 +56,7 @@ resource "huaweicloud_nat_gateway" "cluster_a_nat" {
 }
 
 resource "huaweicloud_vpc_eip" "cluster_a_nat" {
+  provider = huaweicloud.th
   publicip {
     type = "5_bgp"
   }
@@ -62,12 +69,14 @@ resource "huaweicloud_vpc_eip" "cluster_a_nat" {
 }
 
 resource "huaweicloud_nat_snat_rule" "cluster_a_cce" {
+  provider = huaweicloud.th
   nat_gateway_id = huaweicloud_nat_gateway.cluster_a_nat.id
   floating_ip_id = huaweicloud_vpc_eip.cluster_a_nat.id
   subnet_id      = huaweicloud_vpc_subnet.cluster_a_pod.id
 }
 
 resource "huaweicloud_nat_snat_rule" "cluster_a_cce_master" {
+  provider = huaweicloud.th
   nat_gateway_id = huaweicloud_nat_gateway.cluster_a_nat.id
   floating_ip_id = huaweicloud_vpc_eip.cluster_a_nat.id
   subnet_id      = huaweicloud_vpc_subnet.cluster_a_master.id
@@ -76,6 +85,7 @@ resource "huaweicloud_nat_snat_rule" "cluster_a_cce_master" {
 //
 
 resource "huaweicloud_vpc_eip" "cluster_a_api" {
+  provider = huaweicloud.th
   publicip {
     type = "5_bgp"
   }
@@ -88,6 +98,7 @@ resource "huaweicloud_vpc_eip" "cluster_a_api" {
 }
 
 resource "huaweicloud_cce_cluster" "cluster_a" {
+  provider = huaweicloud.th
   name                   = "cluster-a"
   flavor_id              = "cce.s2.small"
   vpc_id                 = huaweicloud_vpc.cluster_a.id
@@ -98,6 +109,7 @@ resource "huaweicloud_cce_cluster" "cluster_a" {
 }
 
 resource "huaweicloud_cce_node_pool" "cluster_a" {
+  provider = huaweicloud.th
   cluster_id               = huaweicloud_cce_cluster.cluster_a.id
   name                     = "cluster-a"
   os                       = "Ubuntu 22.04"

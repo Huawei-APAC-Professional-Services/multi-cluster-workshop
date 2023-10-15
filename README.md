@@ -24,6 +24,22 @@ This is a technical workshop using two CCE cluster to simulate the situation whe
 
 # Tasks
 
+## Create Projects and CCE agency
+1. Log in to [Huawei Cloud](https://www.huaweicloud.com/intl/en-us/) with provided credential, Click `Service List` on the left upper corner of the page and Search `IAM`, then select `Identity and Access Management` service
+![CreateProject01](./images/001_Createproject_001.png)
+
+2. On the `IAM` service page, Select `Projects` on the left side pannel to check if `ap-southeast-1`,`ap-southeast-2`,`ap-southeast-3` exists.
+![CreateProject02](./images/001_Createproject_002.png)
+
+3. If required projects don't exist, Click `Create Project` on the upper right corner of the page to create project, you only need to select the `Region` in which the project is missing, the system will create the default project automatically, you don't need to click `OK` or provide any input
+![Creatproject03](./images/001_Createproject_003.png)
+
+4. Click `Service List` on the left upper corner of the page and Search `CCE`, then select `Cloud Container Engine` service
+![CreateAgency](./images/001_CreateAgency_001.png)
+
+5. If you are prompted to create the agency for CCE, just click `OK` to authorize the system to create the necessary agencies on behalf of you. Changing the region to make sure the necessary agencies in the three regions(`ap-southeast-1`,`ap-southeast-2`,`ap-southeast-3`) are in place now.
+![CreateAgency02](./images/001_CreateAgency_002.png)
+
 ## Create Access Keys
 1. Log in to [Huawei Cloud](https://www.huaweicloud.com/intl/en-us/) with provided credential
 2. Click account name on the upper right corner of the console, and choose `My Credentials`
@@ -62,7 +78,7 @@ $Env:HW_REGION_NAME="ap-southeast-3"
 ```
 
 ## Apply Terraform Configuration
-1. Execute the following command to clone `ucs-workshop` repository to your laptop
+1. Execute the following command to clone `multi-cluster-workshop` repository to your laptop
 ```
 git clone https://github.com/Huawei-APAC-Professional-Services/multi-cluster-workshop.git
 ```
@@ -73,6 +89,7 @@ git clone https://github.com/Huawei-APAC-Professional-Services/multi-cluster-wor
 :bulb: Local state file is used for this Terraform configuration, but you can change it to remote state as well.
 
 ```
+terraform init
 terraform apply
 ```
 Wait for the Terraform to finish, a total of three CCE clusters will be created in Singapore and Hong Kong region. Cluster `fleetmanager` is the cluster in which all the management tools wil be deployed. Cluster `cluster-a` and `cluster-b` are the clusters in which business application will be deployed. 
@@ -84,6 +101,7 @@ Wait for the Terraform to finish, a total of three CCE clusters will be created 
 :bulb: Local state file is used for this Terraform configuration, and it needs to access the state file for `Infra` module. 
 
 ```
+terraform init
 terraform apply
 ```
 
