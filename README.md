@@ -1,5 +1,8 @@
-# multi-cluster-workshop
-Learn how to manage multi-cluster environment
+# Multi-Cloud Infrastructure and Application Management Workshop
+This workshop demonstrates how to manage multi-cloud infrastructure with the using of two Huawei Cloud regions to simulate the multi-cloud.
+
+All the underlying infrastructures are managed by [`infra`](./infra/) module
+
 
 # Goals
 * Build a multi-cluster management solution
