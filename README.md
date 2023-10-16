@@ -209,7 +209,12 @@ terraform apply
 ![ApplicationStatus](./images/006_argocd_app_update_3.png)
 
 5. When you refresh the application page again, you should observe the changes
+
+* Hong Kong Region
 ![appchanges](./images/006_argocd_app_update_4.png)
+
+* Bangkok Region
+![appchanges](./images/006_argocd_app_update_5.png)
 
 # Clean up
 1. Change directory to `multi-cluster-workshop/kubernetes`
