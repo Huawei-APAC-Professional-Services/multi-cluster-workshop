@@ -92,7 +92,7 @@ git clone https://github.com/Huawei-APAC-Professional-Services/multi-cluster-wor
 terraform init
 terraform apply
 ```
-Wait for the Terraform to finish, a total of three CCE clusters will be created in Singapore and Hong Kong region. Cluster `fleetmanager` is the cluster in which all the management tools wil be deployed. Cluster `cluster-a` and `cluster-b` are the clusters in which business application will be deployed. 
+Wait for the Terraform to finish, a total of three CCE clusters will be created in Singapore, Hong Kong and Bangkok regions. Cluster `fleetmanager` is the cluster in which all the management tools wil be deployed. Cluster `cluster-a` and `cluster-b` are the clusters in which business application will be deployed. 
 
 ## Deploy ArgoCD into `fleetmanager` cluster
 1. Change directory to `multi-cluster-workshop/kubernetes`
@@ -180,7 +180,7 @@ terraform apply
 ![AppDeploymentStatus](./images/006_argocd_deployment_status_1.png)
 
 ## Verify Application
-1. On Huawei Cloud console, Click the `Service List` and Search ```CCE```, go to `Cloud Container Engine` by Clicking the `Cloud Container Engine` under `Containers` label
+1. On Huawei Cloud console and select `Hong Kong` and `Bangkok` region respectively, Click the `Service List` and Search ```CCE```, go to `Cloud Container Engine` by Clicking the `Cloud Container Engine` under `Containers` label
 ![gotoCCE](./images/006_argocd_getingress_ip_1.png)
 
 2. On `Cloud Container Engine` page, Click `cluster-a`
@@ -191,6 +191,7 @@ terraform apply
 
 4. Open a browser tab to access the application with the ip address you got from last step, Please note only http is supported. You should be able to see the following page if the application is running appropriately.
 ![gotoclustera-2](./images/006_argocd_getingress_ip_4.png)
+![gotoclusterb-2](./images/006_argocd_getingress_ip_5.png)
 
 ## Change Application Version
 1. Go back to `CodeArts Repo` service and Select the `demo` repository
