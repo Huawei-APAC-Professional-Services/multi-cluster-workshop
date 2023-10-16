@@ -1,5 +1,5 @@
 # Multi-Cloud Infrastructure and Application Management Workshop
-This workshop demonstrates how to manage multi-cloud infrastructure with the using of two Huawei Cloud regions to simulate the multi-cloud.
+This workshop demonstrates how to manage multi-cloud infrastructure with the using of three Huawei Cloud regions to simulate the multi-cloud.
 
 All the underlying infrastructures are managed by [`infra`](./infra/) module. For application management, [Argo CD](https://argo-cd.readthedocs.io/) is deployed by [Kubernetes](./kubernetes/) module to fulfil this purpose.
 
@@ -11,7 +11,7 @@ All the underlying infrastructures are managed by [`infra`](./infra/) module. Fo
 * Explore the traffic distribution policies 
 
 # Target audience
-This is a technical workshop using two CCE cluster to simulate the situation where customers have multiple Kubernetes clusters on different cloud platform or on-premises. The participants should have experiences with Huawei Cloud and have basic knowledge of Kubernetes.
+This is a technical workshop using three CCE cluster to simulate the situation where customers have multiple Kubernetes clusters on different cloud platform or on-premises. The participants should have experiences with Huawei Cloud and have basic knowledge of Kubernetes.
 
 # Prerequisites
 
