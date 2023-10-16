@@ -190,7 +190,10 @@ terraform apply
 ![gotoclustera-1](./images/006_argocd_getingress_ip_3.png)
 
 4. Open a browser tab to access the application with the ip address you got from last step, Please note only http is supported. You should be able to see the following page if the application is running appropriately.
+* Hong Kong Region
 ![gotoclustera-2](./images/006_argocd_getingress_ip_4.png)
+
+* Bangkok Region
 ![gotoclusterb-3](./images/006_argocd_getingress_ip_5.png)
 
 ## Change Application Version
