@@ -112,7 +112,7 @@ resource "huaweicloud_cce_node_pool" "cluster_b_app" {
   provider                 = huaweicloud.hk
   cluster_id               = huaweicloud_cce_cluster.cluster_b.id
   name                     = "cluster-b-app"
-  os                       = "Ubuntu 18.04"
+  os                       = "EulerOS 2.9"
   initial_node_count       = 2
   flavor_id                = "c7n.large.4"
   password                 = "ucs@workshop2023"
